@@ -17,6 +17,22 @@ Point it at a GitBook export — a folder, a zip file, or a live URL — and it 
 
 ---
 
+## Install & Setup
+
+```bash
+# 1. Clone the repo
+git clone https://github.com/your-username/mintport.git
+cd mintport
+
+# 2. Install dependencies
+npm install
+
+# 3. Build
+npm run build
+```
+
+---
+
 ## Usage
 
 ```bash
