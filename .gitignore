@@ -4,3 +4,5 @@ test/output/
 .mintport-tmp/
 *.js.map
 *.d.ts
+test/gitbook-public-docs/
+test/live-output/

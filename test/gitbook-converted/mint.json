@@ -1,0 +1,317 @@
+{
+  "name": "My Docs",
+  "logo": {
+    "light": "/images/logo-light.png",
+    "dark": "/images/logo-dark.png"
+  },
+  "favicon": "/images/favicon.png",
+  "colors": {
+    "primary": "#0066CC"
+  },
+  "navigation": [
+    {
+      "group": "Table of contents",
+      "pages": []
+    },
+    {
+      "group": "Get Started <a href=\"#getting-started\" id=\"getting-started\"></a>",
+      "pages": [
+        "README",
+        "getting-started/quickstart",
+        "getting-started/concepts",
+        "getting-started/import",
+        "getting-started/ai-documentation",
+        {
+          "group": "GitHub & GitLab Sync",
+          "pages": [
+            "getting-started/git-sync/enabling-github-sync",
+            "getting-started/git-sync/enabling-gitlab-sync",
+            "getting-started/git-sync/content-configuration",
+            "getting-started/git-sync/github-pull-request-preview",
+            "getting-started/git-sync/commits",
+            "getting-started/git-sync/monorepos",
+            "getting-started/git-sync/troubleshooting"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Create <a href=\"#creating-content\" id=\"creating-content\"></a>",
+      "pages": [
+        {
+          "group": "Formatting your content",
+          "pages": [
+            "creating-content/formatting/inline",
+            "creating-content/formatting/markdown"
+          ]
+        },
+        {
+          "group": "Content structure",
+          "pages": [
+            "creating-content/content-structure/space",
+            "creating-content/content-structure/page",
+            "creating-content/content-structure/collection"
+          ]
+        },
+        {
+          "group": "Blocks",
+          "pages": [
+            "creating-content/blocks/paragraph",
+            "creating-content/blocks/heading",
+            "creating-content/blocks/unordered-list",
+            "creating-content/blocks/ordered-list",
+            "creating-content/blocks/task-list",
+            "creating-content/blocks/hint",
+            "creating-content/blocks/quote",
+            "creating-content/blocks/code-block",
+            "creating-content/blocks/insert-files",
+            "creating-content/blocks/insert-images",
+            "creating-content/blocks/embed-a-url",
+            "creating-content/blocks/table",
+            "creating-content/blocks/cards",
+            "creating-content/blocks/tabs",
+            "creating-content/blocks/expandable",
+            "creating-content/blocks/stepper",
+            "creating-content/blocks/updates",
+            "creating-content/blocks/drawing",
+            "creating-content/blocks/math-and-tex",
+            "creating-content/blocks/page-link",
+            "creating-content/blocks/columns",
+            "creating-content/blocks/conditional-content",
+            "creating-content/blocks/snippets"
+          ]
+        },
+        "creating-content/ai-coding-assistants-and-skillmd.md \"Using skill.md\"",
+        "creating-content/variables-and-expressions",
+        "creating-content/reusable-content",
+        {
+          "group": "Searching internal content",
+          "pages": [
+            "creating-content/searching-your-content/quick-find",
+            "creating-content/searching-your-content/gitbook-ai"
+          ]
+        },
+        "creating-content/version-control",
+        "creating-content/broken-links"
+      ]
+    },
+    {
+      "group": "GitBook Agent",
+      "pages": [
+        "gitbook-agent/what-is-gitbook-agent",
+        {
+          "group": "Automatic documentation suggestions",
+          "pages": [
+            "gitbook-agent/automatic-documentation-suggestions/connecting-a-source",
+            "gitbook-agent/automatic-documentation-suggestions/exploring-your-data"
+          ]
+        },
+        "gitbook-agent/write-and-edit-with-ai",
+        "gitbook-agent/review-change-requests-with-gitbook-agent",
+        "gitbook-agent/translations"
+      ]
+    },
+    {
+      "group": "Collaborate <a href=\"#collaboration\" id=\"collaboration\"></a>",
+      "pages": [
+        "collaboration/share",
+        {
+          "group": "Change requests",
+          "pages": [
+            "collaboration/change-requests/change-requests-screen",
+            "collaboration/change-requests/change-requests-in-a-space"
+          ]
+        },
+        "collaboration/merge-rules",
+        "collaboration/comments",
+        "collaboration/notifications",
+        "collaboration/pdf-export",
+        "collaboration/live-edits"
+      ]
+    },
+    {
+      "group": "Document an API <a href=\"#api-references\" id=\"api-references\"></a>",
+      "pages": [
+        {
+          "group": "OpenAPI",
+          "pages": [
+            "api-references/openapi/add-an-openapi-specification",
+            "api-references/openapi/insert-api-reference-in-your-docs"
+          ]
+        },
+        {
+          "group": "Guides",
+          "pages": [
+            "api-references/guides/structuring-your-api-reference",
+            "api-references/guides/adding-custom-code-samples",
+            "api-references/guides/managing-api-operations",
+            "api-references/guides/configuring-the-test-it-button",
+            "api-references/guides/describing-enums",
+            "api-references/guides/support-for-ci-cd-with-api-blocks"
+          ]
+        },
+        "api-references/extensions-reference"
+      ]
+    },
+    {
+      "group": "Publish Documentation <a href=\"#publishing-documentation\" id=\"publishing-documentation\"></a>",
+      "pages": [
+        {
+          "group": "Publish a docs site",
+          "pages": [
+            "publishing-documentation/publish-a-docs-site/public-publishing",
+            "publishing-documentation/publish-a-docs-site/share-links",
+            "publishing-documentation/authenticated-access/README"
+          ]
+        },
+        {
+          "group": "Site structure",
+          "pages": [
+            "publishing-documentation/site-structure/site-sections",
+            "publishing-documentation/site-structure/variants"
+          ]
+        },
+        {
+          "group": "Site customization",
+          "pages": [
+            "publishing-documentation/customization/icons-colors-and-themes",
+            "publishing-documentation/customization/layout-and-structure",
+            "publishing-documentation/customization/sharing-and-social",
+            "publishing-documentation/customization/extra-configuration"
+          ]
+        },
+        "publishing-documentation/custom-domain",
+        {
+          "group": "Setting a custom subdirectory",
+          "pages": [
+            "publishing-documentation/setting-a-custom-subdirectory/configuring-a-subdirectory-with-cloudflare",
+            "publishing-documentation/setting-a-custom-subdirectory/configuring-a-subdirectory-with-vercel",
+            "publishing-documentation/setting-a-custom-subdirectory/configuring-a-subdirectory-with-aws"
+          ]
+        },
+        "publishing-documentation/site-settings",
+        "publishing-documentation/insights",
+        "publishing-documentation/site-redirects",
+        {
+          "group": "Authenticated access",
+          "pages": [
+            "publishing-documentation/authenticated-access/enabling-authenticated-access",
+            "publishing-documentation/authenticated-access/setting-up-auth0",
+            "publishing-documentation/authenticated-access/setting-up-azure-ad",
+            "publishing-documentation/authenticated-access/setting-up-aws-cognito",
+            "publishing-documentation/authenticated-access/setting-up-okta",
+            "publishing-documentation/authenticated-access/setting-up-oidc",
+            "publishing-documentation/authenticated-access/setting-up-a-custom-backend"
+          ]
+        },
+        {
+          "group": "Adaptive content",
+          "pages": [
+            {
+              "group": "Enabling adaptive content",
+              "pages": [
+                "publishing-documentation/adaptive-content/enabling-adaptive-content/cookies",
+                "publishing-documentation/adaptive-content/enabling-adaptive-content/url",
+                "publishing-documentation/adaptive-content/enabling-adaptive-content/feature-flags",
+                "publishing-documentation/adaptive-content/enabling-adaptive-content/authenticated-access"
+              ]
+            },
+            "publishing-documentation/adaptive-content/adapting-your-content",
+            "publishing-documentation/adaptive-content/testing-with-segments"
+          ]
+        },
+        "publishing-documentation/ai-search",
+        "publishing-documentation/gitbook-ai-assistant",
+        "publishing-documentation/llm-ready-docs",
+        "publishing-documentation/mcp-servers-for-published-docs",
+        {
+          "group": "Embed in your product",
+          "pages": [
+            {
+              "group": "Implementation",
+              "pages": [
+                "publishing-documentation/embedding/implementation/script",
+                "publishing-documentation/embedding/implementation/nodejs",
+                "publishing-documentation/embedding/implementation/react"
+              ]
+            },
+            "publishing-documentation/embedding/authentication/using-with-authenticated-docs",
+            {
+              "group": "Configuration",
+              "pages": [
+                "publishing-documentation/embedding/configuration/customizing-docs-embed",
+                "publishing-documentation/embedding/configuration/creating-custom-tools",
+                "publishing-documentation/embedding/configuration/reference"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Integrations",
+      "pages": [
+        "integrations/install-an-integration",
+        "integrations/slack",
+        "integrations/visual-studio-code"
+      ]
+    },
+    {
+      "group": "Account management",
+      "pages": [
+        {
+          "group": "Plans",
+          "pages": [
+            {
+              "group": "Community plan",
+              "pages": [
+                "account-management/plans/community/sponsored-site-plan"
+              ]
+            },
+            "account-management/plans/billing-policy",
+            "account-management/plans/legacy-plans"
+          ]
+        },
+        "account-management/cancelling-a-plan",
+        "account-management/account-settings",
+        "account-management/organization-settings",
+        {
+          "group": "Member management",
+          "pages": [
+            "account-management/member-management/invite-members-to-your-organization",
+            "account-management/member-management/roles",
+            "account-management/member-management/teams",
+            "account-management/member-management/permissions-and-inheritance"
+          ]
+        },
+        {
+          "group": "SSO & SAML",
+          "pages": [
+            "account-management/sso-and-saml/sso-members-vs-non-sso"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Snippets",
+      "pages": [
+        "snippets/overview",
+        "snippets/snippets-beta"
+      ]
+    },
+    {
+      "group": "Resources",
+      "pages": [
+        {
+          "group": "GitBook UI",
+          "pages": [
+            "resources/gitbook-ui/toolbar-on-published-sites-and-site-previews.md \"Toolbar\""
+          ]
+        },
+        "resources/keyboard-shortcuts",
+        "resources/glossary",
+        "skill"
+      ]
+    }
+  ]
+}
