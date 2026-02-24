@@ -26,7 +26,8 @@ node dist/index.js convert ./my-gitbook --output ./mintlify-docs
 # Convert a zip file
 node dist/index.js convert export.zip --output ./mintlify-docs
 
-# Convert a live GitBook site
+# Convert a live GitBook URL (best-effort; modern GitBook sites are JavaScript apps
+# so a downloaded export gives better results than URL scraping)
 node dist/index.js convert https://docs.example.com --output ./mintlify-docs
 
 # Preview without writing any files

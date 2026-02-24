@@ -3,6 +3,7 @@ import * as cheerio from 'cheerio';
 import * as fs from 'fs-extra';
 import * as path from 'path';
 import * as os from 'os';
+import TurndownService from 'turndown';
 
 interface ScrapedPage {
   title: string;
@@ -10,10 +11,12 @@ interface ScrapedPage {
   content: string;
 }
 
+const turndown = new TurndownService({ headingStyle: 'atx', codeBlockStyle: 'fenced' });
+
 export async function scrapeGitBook(url: string): Promise<string> {
   const tmpDir = await fs.mkdtemp(path.join(os.tmpdir(), 'mintport-scrape-'));
   console.log(`Scraping GitBook at: ${url}`);
-  console.log(`Temp directory: ${tmpDir}`);
+  console.log('Note: URL scraping works best with simple GitBook sites. For full fidelity, use a downloaded GitBook export instead.');
 
   const baseUrl = new URL(url);
   const visited = new Set<string>();
@@ -23,14 +26,16 @@ export async function scrapeGitBook(url: string): Promise<string> {
   const rootHtml = await fetchPage(url);
   const $ = cheerio.load(rootHtml);
 
-  // Collect all internal links from sidebar nav
+  // Collect all internal links from sidebar nav — skip pure anchor links
   const navLinks: string[] = [];
   $('nav a, [data-testid="sidebar"] a, aside a, [class*="sidebar"] a, [class*="nav"] a').each((_, el) => {
     const href = $(el).attr('href');
-    if (!href) return;
+    if (!href || href.startsWith('#')) return; // skip anchor-only links
     try {
-      const absolute = new URL(href, url).toString();
-      if (absolute.startsWith(baseUrl.origin) && !visited.has(absolute)) {
+      const parsed = new URL(href, url);
+      parsed.hash = ''; // strip fragment
+      const absolute = parsed.toString();
+      if (absolute.startsWith(baseUrl.origin) && !visited.has(absolute) && absolute !== url) {
         navLinks.push(absolute);
       }
     } catch {
@@ -41,21 +46,28 @@ export async function scrapeGitBook(url: string): Promise<string> {
   // Scrape each page
   const allUrls = [url, ...navLinks];
   for (const pageUrl of allUrls) {
-    if (visited.has(pageUrl)) continue;
-    visited.add(pageUrl);
+    // Normalize URL — strip fragment before deduplication
+    const normalizedUrl = (() => { const u = new URL(pageUrl); u.hash = ''; return u.toString(); })();
+    if (visited.has(normalizedUrl)) continue;
+    visited.add(normalizedUrl);
 
     try {
-      const html = await fetchPage(pageUrl);
+      const html = await fetchPage(normalizedUrl);
       const $page = cheerio.load(html);
 
       const title = $page('h1').first().text().trim() || $page('title').text().split('|')[0].trim();
-      const mainContent = $page('main, article, [class*="content"], [class*="page"]').first().html() ?? '';
+      // Try multiple content selectors — GitBook uses different class names
+      const contentEl = $page('[class*="page-body"], [class*="markdown"], main article, main').first();
+      // Remove nav, header, footer noise
+      contentEl.find('nav, header, footer, script, style, [class*="sidebar"], [class*="navbar"]').remove();
+      const rawHtml = contentEl.html() ?? '';
+      const markdown = turndown.turndown(rawHtml);
 
       // Convert relative URL to file path
-      const urlPath = new URL(pageUrl).pathname;
+      const urlPath = new URL(normalizedUrl).pathname;
       const filePath = urlPath === '/' ? 'README.md' : `${urlPath.replace(/^\//, '').replace(/\/$/, '')}.md`;
 
-      pages.push({ title, path: filePath, content: `# ${title}\n\n${mainContent}` });
+      pages.push({ title, path: filePath, content: `# ${title}\n\n${markdown}` });
       console.log(`  Scraped: ${pageUrl}`);
     } catch (err) {
       console.warn(`  Failed to scrape: ${pageUrl}`);
