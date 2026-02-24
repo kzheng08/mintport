@@ -1,90 +1,60 @@
 # mintport
 
-A CLI tool that converts GitBook documentation to [Mintlify](https://mintlify.com) format.
+A command-line tool that migrates documentation from GitBook to Mintlify.
+
+---
 
 ## What it does
 
-- Reads your GitBook export (folder, zip, or live URL)
-- Converts all GitBook-specific syntax to Mintlify MDX components
-- Generates a valid `mint.json` config with navigation
-- Copies all images and assets
-- Produces a `_migration_report.md` summarizing what was converted and what needs manual review
+Point it at a GitBook export — a folder, a zip file, or a live URL — and it produces a fully structured Mintlify project ready to deploy.
 
-## Install
+**It handles:**
+- Converting all GitBook-specific syntax (callouts, tabs, steps, accordions, code blocks) to Mintlify MDX components
+- Building `mint.json` with the full navigation structure from GitBook's `SUMMARY.md`
+- Copying images and rewriting internal links
+- Prompting for branding (logo, colors, favicon) — auto-detecting what it can
+- Generating a migration report that flags anything needing manual review (API blocks, embeds, synced content)
 
-```bash
-npm install -g mintport
-```
-
-Or run without installing:
-
-```bash
-npx mintport convert <input> --output <dir>
-```
+---
 
 ## Usage
 
-**From a local GitBook export folder:**
 ```bash
-mintport convert ./my-gitbook-export --output ./my-mintlify-docs
+# Convert a local GitBook export folder
+node dist/index.js convert ./my-gitbook --output ./mintlify-docs
+
+# Convert a zip file
+node dist/index.js convert export.zip --output ./mintlify-docs
+
+# Convert a live GitBook site
+node dist/index.js convert https://docs.example.com --output ./mintlify-docs
+
+# Preview without writing any files
+node dist/index.js convert ./my-gitbook --output ./mintlify-docs --dry-run
 ```
 
-**From a zip file:**
-```bash
-mintport convert export.zip --output ./my-mintlify-docs
-```
+---
 
-**From a live GitBook URL:**
-```bash
-mintport convert https://docs.yoursite.com --output ./my-mintlify-docs
-```
-
-**Preview without writing files:**
-```bash
-mintport convert ./my-gitbook-export --output ./out --dry-run
-```
-
-**See detailed output:**
-```bash
-mintport convert ./my-gitbook-export --output ./out --verbose
-```
-
-## What gets converted
-
-| GitBook syntax | Mintlify output |
-|---|---|
-| `{% hint style="info" %}` | `<Note>` |
-| `{% hint style="warning" %}` | `<Warning>` |
-| `{% hint style="success" %}` | `<Check>` |
-| `{% hint style="danger" %}` | `<Warning>` |
-| `{% tabs %}` / `{% tab %}` | `<Tabs>` / `<Tab>` |
-| `{% stepper %}` / `{% step %}` | `<Steps>` / `<Step>` |
-| `{% accordion %}` | `<Accordion>` |
-| `{% code title="..." %}` | Code block with title |
-| `{% embed url="..." %}` | Markdown link + review flag |
-| `{% content-ref %}` | Internal link |
-| Synced blocks | Inlined + review flag |
-| API/Swagger blocks | Flagged for manual review |
-
-## Output structure
+## Output
 
 ```
-output/
-├── mint.json               # Mintlify config (navigation, branding, colors)
-├── _migration_report.md    # Summary of what needs manual review
-├── images/                 # All copied assets
-└── **/*.mdx                # Converted pages with frontmatter
+mintlify-docs/
+├── mint.json               # Navigation, branding, and colors config
+├── _migration_report.md    # What converted cleanly and what needs review
+├── images/                 # All assets copied over
+└── **/*.mdx                # Every page, converted with proper frontmatter
 ```
 
-## Development
+---
 
-```bash
-# Install dependencies
-npm install
+## A note on this project
 
-# Build
-npm run build
+I built this with the help of Claude Code (Anthropic's AI coding assistant). I'm not a software engineer by background — I worked through the architecture, requirements, and iteration with AI as my collaborator, handled the setup and toolchain from scratch on a fresh Mac, and made decisions throughout about structure, behavior, and edge cases.
 
-# Run against the test fixture
-npm run test:fixture
-```
+The goal was to ship something real and useful, not just a prototype. I think it does that.
+
+---
+
+## Tech stack
+
+TypeScript · Node.js · commander · gray-matter · cheerio · axios · inquirer · fs-extra
