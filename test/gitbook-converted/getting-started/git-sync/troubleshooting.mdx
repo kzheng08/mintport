@@ -5,7 +5,7 @@ description: "When Git Sync is enabled, be careful not to create readme files th
 
 # Troubleshooting
 
-## I have a GitHub sync error <a href="#i-have-a-github-sync-error" id="i-have-a-github-sync-error"></a>
+## I have a GitHub sync error 
 
 ### Be sure to only create readme files in your repo
 
@@ -25,11 +25,11 @@ Make sure that:‌
 * Your repository **has a** `README.md` **file** at its root (or at the `root` folder specified in your `.gitbook.yaml`) that was created directly in your git repository. This file is required and is used as the homepage for your documentation. For more details, refer to our [content configuration](content-configuration).
 * If you have YAML frontmatters in your Markdown files, make sure they are valid using a [linter](http://www.yamllint.com).​
 
-## ​GitBook is not using my `docs` folder <a href="#gitbook-is-not-using-my-docs-folder" id="gitbook-is-not-using-my-docs-folder"></a>
+## ​GitBook is not using my `docs` folder 
 
 By default, GitBook uses the root of the repository as a starting point. A specific directory can be specified to scope the markdown files. Take a look at our documentation on [content configuration](content-configuration) for more details.‌
 
-## GitBook is creating new markdown files <a href="#gitbook-is-creating-new-markdown-files" id="gitbook-is-creating-new-markdown-files"></a>
+## GitBook is creating new markdown files 
 
 **When synchronizing and editing from GitBook** with an existing Git repository, GitBook may create new markdown files instead of using the existing ones.‌ This is done to ensure GitBook doesn't overrite files that existed in your repository before.
 
@@ -41,7 +41,7 @@ When setting redirects, do not add any leading slashes. For example, trying to r
 
 It's also important to consider that as long as a page exists for a path, GitBook won’t be looking for a possible redirect. So if you're setting up a redirect for an old page to a new one, you will need to remove the old page in order for the redirect to work.
 
-## ​My repository is not listed <a href="#my-repository-is-not-listed" id="my-repository-is-not-listed"></a>
+## ​My repository is not listed 
 
 ### For GitHub repositories
 
@@ -55,7 +55,7 @@ Make sure that your access token has been configured with the following access:
 * `read_repository`
 * `write_repository`
 
-## ​Nothing happens on GitBook after adding a new file to my repository <a href="#nothing-happens-on-gitbook-after-adding-a-new-file-to-my-repository" id="nothing-happens-on-gitbook-after-adding-a-new-file-to-my-repository"></a>
+## ​Nothing happens on GitBook after adding a new file to my repository 
 
 <Warning>
 **This section specifically addresses problems when a `SUMMARY.md` file already exists**

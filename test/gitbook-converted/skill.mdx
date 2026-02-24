@@ -82,13 +82,13 @@ layout:
 
 **Most common custom blocks:**
 
-* `<Tabs>
+* `&lt;Tabs&gt;
 ...
-</Tabs>` for alternatives
+&lt;/Tabs&gt;` for alternatives
 * `{% hint style="..." %}...{% endhint %}` for callouts
-* `<Steps>
+* `&lt;Steps&gt;
 ...
-</Steps>` for sequential steps
+&lt;/Steps&gt;` for sequential steps
 * `<details>...<summary>...</details>` for expandable content
 
 **Links:**
@@ -110,9 +110,9 @@ Choose the right GitBook block for your content needs:
 
 | Need                                       | Use                         | Why                                                                   |
 | ------------------------------------------ | --------------------------- | --------------------------------------------------------------------- |
-| Sequential, ordered instructions           | `<Steps>
+| Sequential, ordered instructions           | `&lt;Steps&gt;
 `             | Guides users through multi-step processes with clear progression      |
-| Alternative options (languages, platforms) | `<Tabs>
+| Alternative options (languages, platforms) | `&lt;Tabs&gt;
 `                | Lets users choose their relevant option without cluttering the page   |
 | Optional or detailed information           | `<details>` (Expandable)    | Keeps page scannable while providing depth for interested readers     |
 | Important warnings or tips                 | `{% hint %}`                | Draws attention with colored styling (info, warning, danger, success) |
@@ -317,12 +317,10 @@ console.log(foo);
 
 **Code blocks with titles:**
 
-````markdown
-```javascript title="index.js"
+ CODE10 javascript title="index.js"
 const foo = 'bar';
 console.log(foo);
-```
-````
+ CODE11 `
 
 **Inline links:**
 
@@ -562,27 +560,7 @@ Use steppers for sequential, multi-step processes where order matters.
 
 **Syntax:**
 
-```markdown
-{% stepper %}
-<Step>
-## First step
-
-Complete the initial setup by installing the required dependencies.
-</Step>
-
-<Step>
-## Second step
-
-Configure your environment variables in the `.env` file.
-</Step>
-
-<Step>
-## Third step
-
-Run the application with `npm start`.
-</Step>
-</Steps>
-```
+ CODE26 
 
 #### Hints
 
@@ -592,23 +570,7 @@ Use hints to highlight important information without disrupting flow. Supported 
 
 **Syntax:**
 
-```markdown
-<Note>
-This is an informational hint with helpful context.
-</Note>
-
-<Warning>
-Be careful when running this command in production.
-</Warning>
-
-<Warning>
-This action cannot be undone. Make sure you have backups.
-</Warning>
-
-<Check>
-Your configuration has been saved successfully!
-</Check>
-```
+ CODE27 
 
 #### Expandable
 
@@ -618,19 +580,11 @@ Use expandable sections for optional content that doesn't need to be visible by 
 
 **Syntax:**
 
-````markdown
-<details>
-<summary>Advanced Configuration Options</summary>
-
-Here you can find detailed information about advanced settings that most users won't need.
-
-```yaml
+ CODE28 yaml
 advanced:
   option1: value1
   option2: value2
-```
-</details>
-````
+ CODE29 `
 
 #### Columns
 
@@ -861,7 +815,7 @@ const example = true;
 
 **Custom blocks:**
 
-* Always close blocks properly (`{% endtab %}`, `{% endhint %}`, etc.)
+* Always close blocks properly (`{/* gitbook: endtab %} */}`, `{/* gitbook: endhint %} */}`, etc.)
 * Match opening and closing tags exactly
 * Test custom blocks in GitBook after editing locally
 
@@ -886,52 +840,49 @@ When GitBook is synced with Git:
 
 Here's a complete example showing multiple GitBook features:
 
-````
-```markdown
+ CODE42 markdown
 # API Authentication Guide
 
 Learn how to authenticate with our API using API keys or OAuth 2.0.
 
-<Note>
+&lt;Note&gt;
 All API requests require authentication. Choose the method that best fits your use case.
-</Note>
+&lt;/Note&gt;
 
 ## Authentication Methods
 
-<Tabs>
+&lt;Tabs&gt;
 <Tab title="API Key">
 The simplest authentication method. Include your API key in the request header:
-```bash
-curl -H "X-API-Key: your-api-key" https://api.example.com/v1/users
-```
+ CODE43 
 
-<Warning>
+&lt;Warning&gt;
 Never commit API keys to version control. Use environment variables instead.
-</Warning>
-</Tab>
+&lt;/Warning&gt;
+&lt;/Tab&gt;
 
 <Tab title="OAuth 2.0">
 More secure for user-facing applications:
 
-<Steps>
-<Step>
+&lt;Steps&gt;
+&lt;Step&gt;
 ## Register your application
 Get your client ID and secret from the developer dashboard.
-</Step>
+&lt;/Step&gt;
 
-<Step>
+&lt;Step&gt;
 ## Request authorization
 Redirect users to our OAuth endpoint.
-</Step>
+&lt;/Step&gt;
 
-<Step>
+&lt;Step&gt;
 Exchange code for token
 
 Use the authorization code to get an access token.
-</Step>
-</Steps>
-</Tab>
-</Tabs>
+&lt;/Step&gt;
+&lt;/Steps&gt;
+&lt;/Tab&gt;
+&lt;/Tabs&gt;
 
 ## Rate Limits
 {% columns %}

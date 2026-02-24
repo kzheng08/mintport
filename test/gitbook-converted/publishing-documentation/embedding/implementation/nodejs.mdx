@@ -159,7 +159,7 @@ const unsubscribe = frame.on('navigate', (data) => {
 * `frame.navigateToAssistant()` → `void` - Switch to the assistant tab
 * `frame.postUserMessage(message: string)` → `void` - Post a message to the chat
 * `frame.clearChat()` → `void` - Clear chat history
-* `frame.configure(settings: Partial<GitBookEmbeddableConfiguration>)` → `void` - Configure the embed
+* `frame.configure(settings: Partial&lt;GitBookEmbeddableConfiguration&gt;)` → `void` - Configure the embed
 * `frame.on(event: string, listener: Function)` → `() => void` - Register event listener (returns unsubscribe function)
 
 ## Configuration Options

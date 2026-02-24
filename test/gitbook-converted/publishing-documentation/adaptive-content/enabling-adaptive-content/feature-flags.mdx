@@ -52,19 +52,20 @@ npm install @gitbook/adaptive
 
 You’ll need to use the `withLaunchDarkly` helper with the LaunchDarkly React SDK to pass context into GitBook.
 
-<pre class="language-javascript"><code class="lang-javascript">import { render } from 'react-dom';
-<strong>import { withLaunchDarkly } from '@gitbook/adaptive';
-</strong><strong>import { asyncWithLDProvider, useLDClient } from 'launchdarkly-react-client-sdk';
-</strong>import MyApplication from './MyApplication';
+```javascript
+import { render } from 'react-dom';
+import { withLaunchDarkly } from '@gitbook/adaptive';
+import { asyncWithLDProvider, useLDClient } from 'launchdarkly-react-client-sdk';
+import MyApplication from './MyApplication';
 
 function PassFeatureFlagsToGitBookSite() {
-<strong>    const ldClient = useLDClient();
-</strong>    React.useEffect(() => {
+    const ldClient = useLDClient();
+    React.useEffect(() => {
         if (!ldClient) {
             return;
         }
-<strong>        return withLaunchDarkly(ldClient);
-</strong>    }, [ldClient]);
+        return withLaunchDarkly(ldClient);
+    }, [ldClient]);
     return null;
 }
 (async () => {
@@ -79,14 +80,14 @@ function PassFeatureFlagsToGitBookSite() {
         options: { /* ... */ }
     });
     render(
-        &#x3C;LDProvider>
-            &#x3C;PassFeatureFlagsToGitBookSite />
-            &#x3C;MyApplication />
-        &#x3C;/LDProvider>,
+        
+            
+            
+        ,
         document.getElementById('reactDiv'),
     );
 })();
-</code></pre>
+```
 </Step>
 
 <Step>
@@ -142,41 +143,32 @@ npm install @gitbook/adaptive
 
 You’ll need to use the `withReflag` helper with the Reflag React SDK to pass context into GitBook.
 
-<pre class="language-javascript"><code class="lang-javascript"><strong>import { withReflag } from '@gitbook/adaptive';
-</strong><strong>import { ReflagProvider, useClient } from '@reflag/react-sdk';
-</strong>import MyApplication from './MyApplication';
+```javascript
+import { withReflag } from '@gitbook/adaptive';
+import { ReflagProvider, useClient } from '@reflag/react-sdk';
+import MyApplication from './MyApplication';
 
 function PassFeatureFlagsToGitBookSite() {
-<strong>    const client = useClient();
-</strong>    React.useEffect(() => {
+    const client = useClient();
+    React.useEffect(() => {
         if (!client) {
             return;
         }
-<strong>        return withReflag(client);
-</strong>    }, [client]);
+        return withReflag(client);
+    }, [client]);
     return null;
 }
 export function Application() {
     const currentUser = useLoggedInUser();
     const appConfig = useAppConfig();
     return (
-        &#x3C;ReflagProvider
-            publishableKey={appConfig.reflagCom.publishableKey}
-            user={{
-                id: currentUser.uid,
-                email: currentUser.email ?? undefined,
-                name: currentUser.displayName ?? '',
-            }}
-            company={{
-                id: currentUser.company.id,
-            }}
-        >
-            &#x3C;PassFeatureFlagsToGitBookSite />
-            &#x3C;MyApplication />
-        &#x3C;/ReflagProvider>
+        
+            
+            
+        
     );
 }
-</code></pre>
+```
 </Step>
 
 <Step>

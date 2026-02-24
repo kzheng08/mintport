@@ -31,7 +31,7 @@ root: ./docs/
 **All other options that specify paths will be relative to this root folder**. So if you define root as `./docs/` and then `structure.summary` as `./product/SUMMARY.md`, GitBook will actually look for a file in `./docs/product/SUMMARY.md`.‌
 </Warning>
 
-### ​Structure‌ <a href="#structure" id="structure"></a>
+### ​Structure‌ 
 
 The structure accepts two properties:‌
 
@@ -50,7 +50,7 @@ structure:
 When Git Sync is enabled, **remember not to create or modify readme files** through GitBook's UI. The readme file should be managed exclusively in your GitHub/GitLab repository to avoid conflicts and duplication issues.
 </Warning>
 
-### Summary‌ <a href="#summary" id="summary"></a>
+### Summary‌ 
 
 The `summary` file is a Markdown file (`.md`) that should have the following structure:
 
@@ -82,7 +82,7 @@ The summary markdown file is **a mirror of the** **table of contents** of your G
 Because of this, it’s not possible to reference the same Markdown file twice in your `SUMMARY.md` file, because this would imply that a single page lives at two different URLs in your GitBook space.
 </Note>
 
-#### Table of contents (sidebar) titles <a href="#sidebar-titles" id="sidebar-titles"></a>
+#### Table of contents (sidebar) titles 
 
 If you want your pages to have a different title in the table of contents sidebar than on the page itself, you can define an optional **page link title** in your `SUMMARY.md` file.
 
@@ -102,7 +102,7 @@ The text inside the quotes (`"Page link title"`) will be used:
 
 Page link titles are optional — if you don’t manually add one, GitBook will use the page’s standard title everywhere by default.
 
-### ​Redirects <a href="#redirects" id="redirects"></a>
+### ​Redirects 
 
 Redirects allow you to define redirects in your `.gitbook.yaml` configuration file. The path is relative to the “root” option. For example, here’s how you can tell GitBook to redirect users accessing a past url `/help` to a new url `/support`
 

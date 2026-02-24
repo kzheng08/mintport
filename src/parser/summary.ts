@@ -73,7 +73,8 @@ export function parseSummary(summaryPath: string): SummaryGroup[] {
     // Heading lines become group names (skip top-level "# Summary" title)
     const headingMatch = line.match(/^#{1,2}\s+(.+)/);
     if (headingMatch) {
-      const groupName = headingMatch[1].trim();
+      // Strip any HTML tags (e.g. GitBook anchor links) from group names
+      const groupName = headingMatch[1].replace(/<[^>]*>/g, '').trim();
       if (groupName.toLowerCase() === 'summary') continue; // skip the title heading
       flushGroup();
       currentGroup = { group: groupName, pages: [] };

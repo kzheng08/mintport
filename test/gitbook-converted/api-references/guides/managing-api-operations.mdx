@@ -12,57 +12,62 @@ It’s common to have operations that are not fully stable yet or that need to b
 
 Use `x-stability` to communicate that an endpoint is unstable or in progress. It helps users avoid non-production-ready endpoints. Supported values: `experimental`, `alpha`, `beta`.
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">paths:
+```yaml
+paths:
   /pet:
     put:
       operationId: updatePet
-<strong>      x-stability: experimental
-</strong></code></pre>
+      x-stability: experimental
+```
 
 ### Deprecating an operation
 
 To mark an operation as deprecated, add the `deprecated: true` attribute.
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">paths:
+```yaml
+paths:
   /pet:
     put:
       operationId: updatePet
-<strong>      deprecated: true
-</strong></code></pre>
+      deprecated: true
+```
 
 Optionally specify when support ends by including `x-deprecated-sunset`&#x20;
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">paths:
+```yaml
+paths:
   /pet:
     put:
       operationId: updatePet
-<strong>      deprecated: true
-</strong><strong>      x-deprecated-sunset: 2030-12-05
-</strong></code></pre>
+      deprecated: true
+      x-deprecated-sunset: 2030-12-05
+```
 
 ### Hiding an operation from the API reference
 
 To hide an operation from your API reference, add `x-internal: true` or `x-gitbook-ignore: true` attribute.
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">paths:
+```yaml
+paths:
   /pet:
     put:
       operationId: updatePet
-<strong>      x-internal: true
-</strong></code></pre>
+      x-internal: true
+```
 
 ### Hiding a response sample
 
 Add the `x-hideSample: true` attribute to a response object to exclude it from the response samples section.
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">paths:
+```yaml
+paths:
   /pet:
     put:
       operationId: updatePet
-<strong>      responses:
-</strong><strong>        200:
-</strong><strong>          x-hideSample: true
-</strong></code></pre>
+      responses:
+        200:
+          x-hideSample: true
+```
 
 ### Customizing the authorization prefix and token placeholder
 
@@ -70,15 +75,16 @@ You can customize the authorization prefix (for example, `Bearer`, `Token`, or a
 
 In your OpenAPI spec, under `components.securitySchemes`, define your scheme like this:
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">components:
+```yaml
+components:
   securitySchemes:
     apiKey:
       type: apiKey
       in: header
       name: Authorization
-<strong>      x-gitbook-prefix: Token
-</strong><strong>      x-gitbook-token-placeholder: YOUR_CUSTOM_TOKEN
-</strong></code></pre>
+      x-gitbook-prefix: Token
+      x-gitbook-token-placeholder: YOUR_CUSTOM_TOKEN
+```
 
 These extensions:
 

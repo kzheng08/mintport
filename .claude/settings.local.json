@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(*)",
+      "WebSearch",
+      "WebFetch(*)",
+      "Bash(cd \"/Users/Kate/workspace/mintport\" && export PATH=\"/opt/homebrew/bin:$PATH\" && npx tsc && rm -rf test/live-output && node dist/index.js convert https://jolielang.gitbook.io/docs --output test/live-output --verbose 2>&1)",
+      "Bash(cd \"/Users/Kate/workspace/mintport\" && export PATH=\"/opt/homebrew/bin:$PATH\" && npm install --save-dev jest @types/jest ts-jest 2>&1)",
+      "Bash(cd \"/Users/Kate/workspace/mintport\" && export PATH=\"/opt/homebrew/bin:$PATH\" && npx jest --no-coverage 2>&1)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\" && npm install -g mintlify 2>&1)",
+      "Bash(export PATH=\"/opt/homebrew/bin:$PATH\" && brew install node@22 && brew unlink node && brew link node@22 --force 2>&1)",
+      "Bash(brew link:*)",
+      "Bash(/opt/homebrew/bin/brew link:*)",
+      "Bash(tail:*)",
+      "Bash(echo 'export PATH=\"/opt/homebrew/opt/node@22/bin:$PATH\"' >> ~/.zshrc && export PATH=\"/opt/homebrew/opt/node@22/bin:$PATH\" && npm install -g mintlify 2>&1)",
+      "Bash(export PATH=\"/opt/homebrew/opt/node@22/bin:$PATH\" && cd \"/Users/Kate/workspace/mintport/test/gitbook-converted\" && mintlify dev 2>&1)",
+      "Bash(export PATH=\"/opt/homebrew/bin:/opt/homebrew/opt/node@22/bin:$PATH\" && cd \"/Users/Kate/workspace/mintport/test/gitbook-converted\" && mintlify dev 2>&1)",
+      "Bash(cd \"/Users/Kate/workspace/mintport\" && export PATH=\"/opt/homebrew/opt/node@22/bin:/opt/homebrew/bin:$PATH\" && npx tsc && rm -rf test/gitbook-converted && node dist/index.js convert test/gitbook-public-docs --output test/gitbook-converted 2>&1)",
+      "Bash(export PATH=\"/opt/homebrew/opt/node@22/bin:/opt/homebrew/bin:$PATH\" && cd \"/Users/Kate/workspace/mintport/test/gitbook-converted\" && mintlify dev 2>&1)",
+      "Bash(cd \"/Users/Kate/workspace/mintport\" && export PATH=\"/opt/homebrew/opt/node@22/bin:/opt/homebrew/bin:$PATH\" && npx tsc && rm -rf test/gitbook-converted && node dist/index.js convert test/gitbook-public-docs --output test/gitbook-converted 2>&1 && node -e \"\nconst fs = require\\('fs'\\);\nconst mint = JSON.parse\\(fs.readFileSync\\('test/gitbook-converted/mint.json','utf-8'\\)\\);\nmint.name = 'GitBook Documentation';\nmint.favicon = '/images/favicon.ico';\nmint.colors = { primary: '#346DDB' };\ndelete mint.logo;\nfs.writeFileSync\\('test/gitbook-converted/mint.json', JSON.stringify\\(mint, null, 2\\)\\);\n\nconst https = require\\('https'\\);\nconst dest = 'test/gitbook-converted/images/favicon.ico';\nconst file = fs.createWriteStream\\(dest\\);\nhttps.get\\('https://www.gitbook.com/favicon.ico', res => {\n  if\\(res.statusCode===301||res.statusCode===302\\){\n    https.get\\(res.headers.location, r2 => { r2.pipe\\(file\\); file.on\\('finish',\\(\\)=>console.log\\('ready'\\)\\); }\\);\n  } else { res.pipe\\(file\\); file.on\\('finish',\\(\\)=>console.log\\('ready'\\)\\); }\n}\\);\n\" 2>&1)",
+      "Bash(head:*)",
+      "Bash(which node:*)",
+      "Bash(/opt/homebrew/bin/brew unlink node@22 && /opt/homebrew/bin/brew link --force node@22 2>&1)",
+      "Bash(node:*)",
+      "Bash(ln:*)",
+      "Bash(npx tsc:*)",
+      "Bash(pkill:*)",
+      "Bash(ln -sf /opt/homebrew/bin/mintlify /Users/Kate/.local/bin/mintlify && mintlify --version 2>&1)"
+    ]
+  }
+}

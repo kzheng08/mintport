@@ -12,9 +12,9 @@ GitBook allows you to adjust how your API looks and works on your published site
 
 Head to our [guides section](guides/) to learn more about using OpenAPI extensions to configure your documentation.
 
-<details>
 
-<summary><code>x-page-title | x-displayName</code></summary>
+
+`x-page-title | x-displayName`
 
 Change the display name of a tag used in the navigation and page title.
 
@@ -26,11 +26,11 @@ tags:
     x-page-title: Users
 ```
 
-</details>
 
-<details>
 
-<summary><code>x-page-description</code></summary>
+
+
+`x-page-description`
 
 Add a description to the page.
 
@@ -43,11 +43,11 @@ tags:
     x-page-description: "Manage user accounts and profiles."
 ```
 
-</details>
 
-<details>
 
-<summary><code>x-page-icon</code></summary>
+
+
+`x-page-icon`
 
 Add a Font Awesome icon to the page. See available icons [here](https://fontawesome.com/search).
 
@@ -61,11 +61,11 @@ tags:
     x-page-icon: "user"
 ```
 
-</details>
 
-<details>
 
-<summary><code>parent | x-parent</code>  </summary>
+
+
+`parent | x-parent`  
 
 Add hierarchy to tags to organize your pages in GitBook.&#x20;
 
@@ -84,11 +84,11 @@ tags:
     parent: organization    
 ```
 
-</details>
 
-<details>
 
-<summary><code>x-hideTryItPanel</code></summary>
+
+
+`x-hideTryItPanel`
 
 Show or hide the “Test it” button for an OpenAPI block.
 
@@ -107,17 +107,17 @@ paths:
       x-hideTryItPanel: true
 ```
 
-</details>
 
-<details>
 
-<summary><code>x-codeSamples</code></summary>
+
+
+`x-codeSamples`
 
 Show, hide, or include custom code samples for an OpenAPI block.
 
 #### Fields
 
-<table><thead><tr><th width="103.625">Field Name</th><th width="88.07421875" align="center">Type</th><th>Description</th></tr></thead><tbody><tr><td><code>lang</code></td><td align="center">string</td><td>Code sample language. Value should be one of the following <a href="https://github.com/github/linguist/blob/master/lib/linguist/popular.yml">list</a></td></tr><tr><td><code>label</code></td><td align="center">string</td><td>Code sample label, for example <code>Node</code> or <code>Python2.7</code>, <em>optional</em>, <code>lang</code> is used by default</td></tr><tr><td><code>source</code></td><td align="center">string</td><td>Code sample source code</td></tr></tbody></table>
+Field NameTypeDescription`lang`stringCode sample language. Value should be one of the following [list](https://github.com/github/linguist/blob/master/lib/linguist/popular.yml)`label`stringCode sample label, for example `Node` or `Python2.7`, _optional_, `lang` is used by default`source`stringCode sample source code
 
 ```yaml title="openapi.yaml"
 openapi: '3.0'
@@ -140,11 +140,11 @@ paths:
             'https://api.gitbook.com/v1/user'
 ```
 
-</details>
 
-<details>
 
-<summary><code>x-enumDescriptions</code></summary>
+
+
+`x-enumDescriptions`
 
 Add an individual description for each of the `enum` values in your schema.
 
@@ -165,11 +165,11 @@ components:
         REJECTED: The project was rejected.
 ```
 
-</details>
 
-<details>
 
-<summary><code>x-internal | x-gitbook-ignore</code></summary>
+
+
+`x-internal | x-gitbook-ignore`
 
 Hide an endpoint from your API reference.
 
@@ -188,11 +188,11 @@ paths:
       x-internal: true
 ```
 
-</details>
 
-<details>
 
-<summary><code>x-stability</code></summary>
+
+
+`x-stability`
 
 Mark endpoints that are unstable or in progress.&#x20;
 
@@ -211,11 +211,11 @@ paths:
       x-stability: experimental
 ```
 
-</details>
 
-<details>
 
-<summary><code>deprecated</code></summary>
+
+
+`deprecated`
 
 Mark whether an endpoint is deprecated or not. Deprecated endpoints will give deprecation warnings in your published site.
 
@@ -234,11 +234,11 @@ paths:
       deprecated: true
 ```
 
-</details>
 
-<details>
 
-<summary><code>x-deprecated-sunset</code></summary>
+
+
+`x-deprecated-sunset`
 
 Add a sunset date to a deprecated operation.&#x20;
 
@@ -260,4 +260,4 @@ paths:
       x-deprecated-sunset: 2030-12-05
 ```
 
-</details>
+

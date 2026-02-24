@@ -12,37 +12,40 @@ GitBook does more than just render your OpenAPI spec. It lets you customize your
 
 To keep your documentation organized, GitBook can split your API operations into separate pages. Each page is generated from a tag in your OpenAPI spec. To group operations into a page, assign the same tag to each operation:
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">paths:
+```yaml
+paths:
   /pet:
     put:
-<strong>      tags:
-</strong><strong>        - pet
-</strong>      summary: Update an existing pet.
+      tags:
+        - pet
+      summary: Update an existing pet.
       description: Update an existing pet by Id.
       operationId: updatePet
-</code></pre>
+```
 
 ### Reorder pages in your table of contents
 
 The order of pages in GitBook matches the order of tags in your OpenAPI tags array:
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">tags:
-<strong>  - name: pet
-</strong><strong>  - name: store
-</strong><strong>  - name: user
-</strong></code></pre>
+```yaml
+tags:
+  - name: pet
+  - name: store
+  - name: user
+```
 
 ### Nest pages into groups
 
 To build multi-level navigation, use `x-parent` (or `parent`) in tags to define hierarchy:
 
-<pre class="language-yaml" data-title="openapi.yaml"><code class="lang-yaml">tags:
+```yaml
+tags:
   - name: everything
   - name: pet
-<strong>    x-parent: everything
-</strong>  - name: store
-<strong>    x-parent: everything
-</strong></code></pre>
+    x-parent: everything
+  - name: store
+    x-parent: everything
+```
 
 The above example will create a table of contents that looks like:
 

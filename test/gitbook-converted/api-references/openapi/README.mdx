@@ -14,9 +14,9 @@ Once imported into GitBook, these documents are transformed into interactive and
 
 GitBook supports [Swagger 2.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/2.0) or [OpenAPI 3.0](https://github.com/OAI/OpenAPI-Specification/blob/main/versions/3.0.3) compliant files.
 
-{% openapi src="https://petstore3.swagger.io/api/v3/openapi.json" path="/pet" method="post" %}
+{/* gitbook: openapi src="https://petstore3.swagger.io/api/v3/openapi. */}
 [https://petstore3.swagger.io/api/v3/openapi.json](https://petstore3.swagger.io/api/v3/openapi.json)
-{% endopenapi %}
+{/* gitbook: endopenapi %} */}
 
 ### Test it (powered by Scalar)
 
@@ -26,9 +26,9 @@ Powered by [Scalar](https://scalar.com/), you won't need to leave the docs in or
 
 #### FAQ
 
-<details>
 
-<summary>Why isn’t my spec loading?</summary>
+
+Why isn’t my spec loading?
 
 <Note>
 **Note:** This information only applies to **specs added by URL**.
@@ -37,6 +37,6 @@ Powered by [Scalar](https://scalar.com/), you won't need to leave the docs in or
 If you added you specification via URL, your API must [allow cross-origin](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Access-Control-Allow-Origin) GET requests from your docs site. In your API’s CORS settings, allow the exact origin where your docs are hosted (e.g., `https://your-site.gitbook.io` or `https://docs.example.com`). \
 \
 If your endpoint is public and doesn’t use credentials, you can also return: `Access-Control-Allow-Origin: *`\
-<br>
+<br />
 
-</details>
+

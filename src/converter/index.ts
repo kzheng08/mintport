@@ -11,6 +11,7 @@ import { convertContentRefs } from './contentrefs';
 import { convertSyncedBlocks } from './syncedblocks';
 import { convertApiBlocks } from './apiblocks';
 import { rewriteLinks } from './links';
+import { sanitizeMdx } from './sanitize';
 
 const IMAGE_REGEX = /!\[([^\]]*)\]\(([^)]+)\)/g;
 
@@ -58,6 +59,7 @@ export function convertPage(
   content = convertCodeBlocks(content);
   content = convertContentRefs(content, sourcePath, allPaths, flags);
   content = rewriteLinks(content, sourcePath);
+  content = sanitizeMdx(content);
 
   const title: string = data.title ?? extractTitleFromContent(body) ?? 'Untitled';
   const description: string = data.description ?? extractDescription(content);

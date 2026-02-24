@@ -6,9 +6,9 @@ description: "GitBook Assistant offers users answers based on your docs and tail
 
 # GitBook Assistant
 
-{% include "../.gitbook/includes/ultimate-hint.md" %}
+{/* gitbook: include "../.gitbook/includes/ultimate-hint.md" %} */}
 
-<figure><img src="../.gitbook/assets/25_07_23_gitbook_assistant.svg" alt="GitBook Assistant"><figcaption><p>The GitBook Assistant</p></figcaption></figure>
+![GitBook Assistant](../.gitbook/assets/25_07_23_gitbook_assistant.svg)
 
 GitBook Assistant gives your users fast, accurate answers about your documentation using natural language. It's personalized to your users, can be embedded into your website or product, and is available in the sidebar of your published docs.
 
@@ -18,9 +18,9 @@ The Assistant uses agentic retrieval to understand the context of queries based 
 
 Try asking the Assistant a question in the box below:
 
-<p align="center"><button type="button" class="button primary" data-action="ask" data-icon="gitbook-assistant">Ask a question...</button></p>
+Ask a question...
 
-### Enable GitBook Assistant <a href="#how-do-i-use-gitbook-ai" id="how-do-i-use-gitbook-ai"></a>
+### Enable GitBook Assistant 
 
 To enable GitBook Assistant, open your site's dashboard, navigate to the **Settings** page and choose **AI & MCP** from the menu on the left. Here you can enable GitBook Assistant from the options available.
 
@@ -41,19 +41,19 @@ You can add suggested questions in your site’s **Settings**, under the **AI & 
 If you’re embedding the Assistant in your product, you can also dynamically set suggestions in your embed configuration. See [Customizing the Embed](embedding/configuration/customizing-docs-embed#adding-suggestions).
 </Note>
 
-### Using GitBook Assistant in published docs <a href="#how-do-i-use-gitbook-ai" id="how-do-i-use-gitbook-ai"></a>
+### Using GitBook Assistant in published docs 
 
 Users can access GitBook Assistant in three ways:
 
-* Press <kbd>⌘</kbd> + <kbd>I</kbd> on Mac or <kbd>Ctrl</kbd> + <kbd>I</kbd> on PC
+* Press ⌘ + I on Mac or Ctrl + I on PC
 *   Click the **GitBook Assistant**
 
-    <picture><source srcset="../.gitbook/assets/25_07_16_gitbook_assistant.svg" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/25_07_16_gitbook_assistant_1.svg" alt=""></picture>
+    ![](../.gitbook/assets/25_07_16_gitbook_assistant_1.svg)
 
     button next to the **Ask or search…** bar
 * Type a question into the **Ask or search…** bar and choose the 'Ask…' option at the top of the menu
 
-{% if visitor.claims.unsigned.reflag.EMBED_ASSISTANT_PANEL == true %}
+{/* gitbook: if visitor.claims.unsigned.reflag.EMBED_ASSISTANT_PANEL = */}
 **Embed GitBook Assistant in your product**
 
 You can embed GitBook Assistant directly into your product or website, giving users instant access to AI-powered help without leaving your application. The Assistant can be embedded as part of [Docs Embed](embedding/), which includes both the Assistant tab for AI-powered chat and a Docs tab for browsing your documentation.
@@ -70,7 +70,7 @@ Choose the embedding method that fits your stack:
 * [Customizing the Embed](embedding/configuration/customizing-docs-embed) – Welcome messages, actions, and suggestions
 * [Creating custom tools](embedding/configuration/creating-custom-tools) – Connect Assistant to your APIs
 * [API Reference](embedding/configuration/reference) – All available methods and events
-{% endif %}
+{/* gitbook: endif %} */}
 
 ### Extend GitBook Assistant with MCP servers
 

@@ -6,7 +6,7 @@ description: "Define requirements that must be met before change requests can be
 
 # Merge rules
 
-{% include "../.gitbook/includes/pro-and-enterprise-hint.md" %}
+{/* gitbook: include "../.gitbook/includes/pro-and-enterprise-hint.md" */}
 
 Merge rules allow you to define requirements that must be met before change requests can be merged, such as needing a review from a specific user, or requiring a subject or description for the change request.
 
@@ -24,7 +24,7 @@ You can configure merge rules at different levels to match your team’s workflo
 
 Organizations can set default merge rules that all spaces inherit. This provides consistency across multiple spaces while still allowing individual spaces to customize their rules as needed.
 
-To configure merge rules for your organization, open the organization menu  at the top of the sidebar and choose **Settings** <picture><source srcset="../.gitbook/assets/25_01_10_settings_icon_dark.svg" media="(prefers-color-scheme: dark)"><img src="../.gitbook/assets/25_01_10_settings_icon_light.svg" alt=""></picture>. In the Settings screen, select **Merge rules** under the **Organization** section of the sidebar. Here you can specify merge rules for your entire organization.
+To configure merge rules for your organization, open the organization menu  at the top of the sidebar and choose **Settings** ![](../.gitbook/assets/25_01_10_settings_icon_light.svg). In the Settings screen, select **Merge rules** under the **Organization** section of the sidebar. Here you can specify merge rules for your entire organization.
 
 Choose between unrestricted merging, or select from the list of presets to apply to change requests across your entire organization.
 
@@ -44,7 +44,7 @@ When setting up merge rules for a space, you can choose to:
 If you inherit organization rules, any changes to the organization’s merge rules will automatically apply to the space.
 </Note>
 
-To configure merge rules for your organization, open the **Actions menu** <i class="fa-ellipsis">:ellipsis:</i> in the top left of the editor, and then select **Merge rules**. Here you can specify whether to inherit the merge rules from your organization or configure new ones specific to that space.
+To configure merge rules for your organization, open the **Actions menu** :ellipsis: in the top left of the editor, and then select **Merge rules**. Here you can specify whether to inherit the merge rules from your organization or configure new ones specific to that space.
 
 ## Rule evaluation
 
@@ -75,15 +75,15 @@ When setting up merge rules, consider these recommendations:
 
 ### Review requirements
 
-<table><thead><tr><th width="279.703125">Rule</th><th>Description</th></tr></thead><tbody><tr><td><strong>Require at least one review</strong></td><td>Ensures that at least one team member has reviewed the change request before it can be merged.</td></tr><tr><td><strong>Require all reviews approved</strong></td><td>All <strong>completed</strong> (not requested) reviews must be approvals. If any reviewer has requested changes or rejected the change request, the merge will be blocked.</td></tr><tr><td><strong>Require review by specified actors</strong></td><td>Requires approval from all specified users. You can select specific team members who must review and approve the change request before it can be merged.</td></tr><tr><td><strong>Require review by one of specified actors</strong></td><td>Requires approval from at least one of the specified users. This is useful when you have multiple qualified reviewers but only need one approval from the group.</td></tr><tr><td><strong>Require Docs Agent review (coming soon)</strong></td><td>Requires a review from the GitBook AI agent. This ensures automated quality checks are performed on content changes before merging.</td></tr></tbody></table>
+RuleDescription**Require at least one review**Ensures that at least one team member has reviewed the change request before it can be merged.**Require all reviews approved**All **completed** (not requested) reviews must be approvals. If any reviewer has requested changes or rejected the change request, the merge will be blocked.**Require review by specified actors**Requires approval from all specified users. You can select specific team members who must review and approve the change request before it can be merged.**Require review by one of specified actors**Requires approval from at least one of the specified users. This is useful when you have multiple qualified reviewers but only need one approval from the group.**Require Docs Agent review (coming soon)**Requires a review from the GitBook AI agent. This ensures automated quality checks are performed on content changes before merging.
 
 ### Change request requirements
 
-<table><thead><tr><th width="279.703125">Rule</th><th>Description</th></tr></thead><tbody><tr><td><strong>Require up to date change request</strong></td><td>The change request must be current with the primary content branch. If the primary content has been updated since the change request was created, you’ll need to rebase or update it before merging.</td></tr><tr><td><strong>Require subject</strong></td><td>The change request must have a descriptive subject/title. Empty subjects will block the merge.</td></tr><tr><td><strong>Require description</strong></td><td>The change request must include a description explaining what changes were made and why.</td></tr></tbody></table>
+RuleDescription**Require up to date change request**The change request must be current with the primary content branch. If the primary content has been updated since the change request was created, you’ll need to rebase or update it before merging.**Require subject**The change request must have a descriptive subject/title. Empty subjects will block the merge.**Require description**The change request must include a description explaining what changes were made and why.
 
 ### Advanced options
 
-<table><thead><tr><th width="279.703125">Rule</th><th>Description</th></tr></thead><tbody><tr><td><strong>Allow specified actors to bypass requirements</strong></td><td>You can designate specific users who are allowed to bypass all other merge rule requirements. This is useful for administrators or emergency situations where rules need to be overridden.</td></tr><tr><td><strong>Custom expression</strong></td><td>You can create advanced merge rules using custom JavaScript expressions. This allows you to define complex logic based on the evaluation context, with access to properties of the change request, reviews, and the user attempting to merge.</td></tr></tbody></table>
+RuleDescription**Allow specified actors to bypass requirements**You can designate specific users who are allowed to bypass all other merge rule requirements. This is useful for administrators or emergency situations where rules need to be overridden.**Custom expression**You can create advanced merge rules using custom JavaScript expressions. This allows you to define complex logic based on the evaluation context, with access to properties of the change request, reviews, and the user attempting to merge.
 
 #### Custom Expressions
 

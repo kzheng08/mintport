@@ -19,10 +19,12 @@ export function buildMintConfig(
   groups: SummaryGroup[],
   branding: Branding
 ): MintConfig {
-  const navigation: NavGroup[] = groups.map(group => ({
-    group: group.group,
-    pages: group.pages.map(pageToPath),
-  }));
+  const navigation: NavGroup[] = groups
+    .map(group => ({
+      group: group.group,
+      pages: group.pages.map(pageToPath),
+    }))
+    .filter(g => g.pages.length > 0); // remove empty groups
 
   return {
     name: branding.name,

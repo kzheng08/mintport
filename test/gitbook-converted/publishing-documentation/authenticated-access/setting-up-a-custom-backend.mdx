@@ -111,7 +111,7 @@ For instance, if your login screen is located at `https://example.com/login`, yo
 
 You can configure this fallback URL within your site’s audience settings under the "Authenticated access" tab.
 
-<figure><img src="../../.gitbook/assets/25_04_10_setting_up_a_custom_backend.png" alt="A GitBook screenshot showing where to configure a fallback URL"><figcaption><p>Configure a fallback URL</p></figcaption></figure>
+![A GitBook screenshot showing where to configure a fallback URL](../../.gitbook/assets/25_04_10_setting_up_a_custom_backend.png)
 
 When redirecting to the fallback URL, GitBook includes a `location` query parameter to the fallback URL that you can leverage in your handler to redirect the user to the original location of the user:
 
@@ -160,7 +160,7 @@ To support multiple tenants, your authentication backend needs to know which Git
 
 So for example, you could setup the fallback URLs for each sites as follow:
 
-<table><thead><tr><th width="150.75390625">GitBook Site</th><th>Fallback URL</th></tr></thead><tbody><tr><td>Customer A site</td><td><code>https://auth-backend.acme.org/login?site=customer-a</code></td></tr><tr><td>Customer B site</td><td><code>https://auth-backend.acme.org/login?site=customer-b</code></td></tr></tbody></table>
+GitBook SiteFallback URLCustomer A site`https://auth-backend.acme.org/login?site=customer-a`Customer B site`https://auth-backend.acme.org/login?site=customer-b`
 
 Your authentication backend can then check this information and handle the redirection to the correct site accordingly:
 
