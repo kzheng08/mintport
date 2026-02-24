@@ -12,6 +12,7 @@
     "prepare": "tsc",
     "dev": "ts-node src/index.ts",
     "convert": "ts-node src/index.ts convert",
+    "test": "jest",
     "test:fixture": "npm run build && node dist/index.js convert test/fixtures/mock-gitbook --output test/output --verbose"
   },
   "keywords": [],
@@ -31,9 +32,12 @@
   "devDependencies": {
     "@types/cheerio": "^0.22.35",
     "@types/fs-extra": "^11.0.4",
+    "@types/jest": "^30.0.0",
     "@types/node": "^25.3.0",
     "@types/turndown": "^5.0.6",
     "@types/unzipper": "^0.10.11",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   }
